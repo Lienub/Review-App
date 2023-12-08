@@ -20,6 +20,8 @@ deploy_review_app:
 
 cleanup_review_app:
   stage: deploy
+  script:
+    - echo "Removing ReviewApp.."
   environment:
     name: review/$CI_COMMIT_REF_NAME
     action: stop
