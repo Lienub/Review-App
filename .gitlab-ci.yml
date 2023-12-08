@@ -1,0 +1,25 @@
+stages:
+    - deploy
+    - cleanup
+
+deploy_review_app:
+  stage: deploy
+  script:
+    echo "Deploying Review App..."
+    echo "Your deploy commands here..."
+  environment:
+    name: review/$CI_COMMIT_REF_NAME
+    url: https://%24%7Bci_project_namespace%7D.pages.unistra.fr/-/$%7BCI_PROJECT_NAME%7D/-/jobs/$%7BCI_JOB_ID%7D/artifacts/public/index.html
+  only:
+    - merge_requests
+
+cleanup_review_app:
+  stage: cleanup
+  script:  
+    echo "Stopping Review App..."
+    echo "Your cleanup commands here..."
+  environment:
+    name: review/$CI_COMMIT_REF_NAME
+  only:
+    - merge_requests
+  when: manual
