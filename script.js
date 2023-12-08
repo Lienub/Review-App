@@ -1,12 +1,12 @@
 function generateRandomList() {
-    const numberOfIntegers = 25;
-    const minRange = 1;
-    const maxRange = 100;
+    const MAX_SIZE_ARRAY = 25;
+    const MIN_RANGE = 1;
+    const MAX_RANGE = 100;
 
     let randomList = [];
 
-    for (let i = 0; i < numberOfIntegers; i++) {
-        let randomInteger = Math.floor(Math.random() * (maxRange - minRange + 1)) + minRange;
+    for (let i = 0; i < MAX_SIZE_ARRAY; i++) {
+        let randomInteger = Math.floor(Math.random() * (MAX_RANGE - MIN_RANGE + 1)) + MIN_RANGE;
         randomList.push(randomInteger);
     }
 
