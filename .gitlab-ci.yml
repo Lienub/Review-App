@@ -1,6 +1,5 @@
 stages:
     - deploy
-    - pages
 
 deploy_review_app:
   stage: deploy
@@ -32,7 +31,7 @@ cleanup_review_app:
 
 
 pages:
-  stage: pages
+  stage: deploy
   script:
     - echo "Deploying to GitLab Pages.."
     - mkdir .public
