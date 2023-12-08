@@ -1,3 +1,16 @@
+/**
+ * Generates a random list of integers within a specified range, updates the HTML document with the random list,
+ * and displays the generated list in a designated element.
+ *
+ * @returns {void}
+ *
+ * @example
+ * // HTML structure:
+ * // <div id="randomList"></div>
+ *
+ * // JavaScript usage:
+ * generateRandomList();
+ */
 function generateRandomList() {
     const numberOfIntegers = 25;
     const minRange = 1;
@@ -13,6 +26,17 @@ function generateRandomList() {
     document.getElementById("randomList").textContent = "Random List: " + randomList.join(", ");
 }
 
+/**
+ * Sorts an array of numbers in ascending order using the Bubble Sort algorithm.
+ *
+ * @param {number[]} arr - The array of numbers to be sorted.
+ * @returns {number[]} - The sorted array in ascending order.
+ *
+ * @example
+ * const unsortedArray = [64, 34, 25, 12, 22, 11, 90];
+ * const sortedArray = bubbleSort(unsortedArray);
+ * console.log(sortedArray); // Output: [11, 12, 22, 25, 34, 64, 90]
+ */
 function bubbleSort(arr) {
     let sorted;
     
@@ -36,6 +60,20 @@ function bubbleSort(arr) {
     return arr;
 }
 
+/**
+ * Retrieves a list from the HTML document, converts it to an array of numbers,
+ * sorts the array using the Bubble Sort algorithm, and updates the sorted list in the HTML document.
+ *
+ * @returns {void}
+ *
+ * @example
+ * // HTML structure:
+ * // <div id="randomList">5, 3, 8, 1, 4</div>
+ * // <div id="sortedList"></div>
+ *
+ * // JavaScript usage:
+ * sortList();
+ */
 function sortList() {
     let randomList = document.getElementById("randomList").textContent;
     randomList = randomList.split(", ");
