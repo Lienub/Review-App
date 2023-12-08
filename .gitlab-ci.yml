@@ -5,8 +5,7 @@ deploy_review_app:
   stage: deploy
   script:
     - echo "Deploying Review App.."
-    - mkdir public
-    - cp -r * public
+    - cp -r * .
   artifacts:
     paths: 
       - public
