@@ -1,6 +1,6 @@
 stages:
     - deploy
-    - cleanup
+    - pages
 
 deploy_review_app:
   stage: deploy
@@ -14,7 +14,7 @@ deploy_review_app:
     - merge_requests
 
 cleanup_review_app:
-  stage: cleanup
+  stage: deploy
   script:
     - echo "Stopping Review App..."
     - echo "Your cleanup commands here..."
@@ -23,3 +23,15 @@ cleanup_review_app:
   only:
     - merge_requests
   when: manual
+
+pages:
+  stage: pages
+  only:
+    - main 
+  script:
+    - mkdir .public
+    - cp -r * .public
+    - mv .public public
+  artifacts:
+    paths:
+      - public
