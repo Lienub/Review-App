@@ -12,14 +12,14 @@
  * generateRandomList();
  */
 function generateRandomList() {
-    const numberOfIntegers = 25;
-    const minRange = 1;
-    const maxRange = 100;
+    const MAX_SIZE_ARRAY = 25;
+    const MIN_RANGE = 1;
+    const MAX_RANGE = 100;
 
     let randomList = [];
 
-    for (let i = 0; i < numberOfIntegers; i++) {
-        let randomInteger = Math.floor(Math.random() * (maxRange - minRange + 1)) + minRange;
+    for (let i = 0; i < MAX_SIZE_ARRAY; i++) {
+        let randomInteger = Math.floor(Math.random() * (MAX_RANGE - MIN_RANGE + 1)) + MIN_RANGE;
         randomList.push(randomInteger);
     }
 
@@ -40,7 +40,7 @@ function generateRandomList() {
 function bubbleSort(arr) {
     let sorted;
     
-    do {
+    while(!sorted) {
         sorted = true
         for (let i = 0; i < arr.length ; i++) {
             if (arr[i] > arr[i + 1]) {
@@ -55,7 +55,7 @@ function bubbleSort(arr) {
                 arr[i + 1] = temp;
             }
         }
-    } while (!sorted);
+    }
 
     return arr;
 }
@@ -76,10 +76,11 @@ function bubbleSort(arr) {
  */
 function sortList() {
     let randomList = document.getElementById("randomList").textContent;
-    randomList = randomList.split(", ");
+    randomList = randomList.replace(/[^\d,]/g, "");
+    randomList = randomList.split(",");
     randomList = randomList.map(Number);
 
     let sortedList = bubbleSort(randomList)
 
-    document.getElementById("sortedList").textContent = "Sorted List: " + randomList.join(", ");
+    document.getElementById("sortedList").textContent = "Sorted List: " + sortedList.join(", ");
 }
