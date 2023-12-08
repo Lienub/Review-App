@@ -1,6 +1,5 @@
 stages:
     - deploy
-    - pages
 
 deploy_review_app:
   stage: deploy
@@ -8,7 +7,7 @@ deploy_review_app:
     - echo "Deploying Review App..."
     - mkdir public
     - cp -r * public
-  artefacts:
+  artifacts:
     paths: public
   environment:
     name: review/$CI_COMMIT_REF_NAME
