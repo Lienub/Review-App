@@ -14,16 +14,15 @@ deploy_review_app:
   environment:
     name: review/$CI_COMMIT_REF_NAME
     url: https://${CI_PROJECT_NAMESPACE}.pages.unistra.fr/-/${CI_PROJECT_NAME}/-/jobs/${CI_JOB_ID}/artifacts/public/index.html
+    on_stop: cleanup_review_app
   only:
     - merge_requests
 
 cleanup_review_app:
   stage: deploy
-  script:
-    - echo "Stopping Review App..."
-    - rm -rf public
   environment:
     name: review/$CI_COMMIT_REF_NAME
+    action: stop
   only:
     - merge_requests
   when: manual
