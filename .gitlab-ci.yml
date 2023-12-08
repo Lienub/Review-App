@@ -8,7 +8,6 @@ deploy_review_app:
     - mkdir .public
     - cp -r * .public
     - mv .public public
-    - mv tests_logs/*.log public
   artifacts:
     paths: 
       - public
