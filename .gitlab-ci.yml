@@ -28,3 +28,16 @@ cleanup_review_app:
   only:
     - merge_requests
   when: manual
+
+
+pages:
+  script:
+    - echo "Deploying to GitLab Pages.."
+    - mkdir .public
+    - cp -r * .public
+    - mv .public public
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
